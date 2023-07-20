@@ -1,23 +1,45 @@
-extends RigidBody2D
+class_name Player extends RigidBody2D
+
+signal died
 
 @export var jump_power = 10.0
 @onready var btn: TouchScreenButton = $"../TouchBtn"
+var is_dead = false
+var can_jump = true
 
 func _ready() -> void:
-	btn.pressed.connect(on_button_pressed)
+	btn.pressed.connect(jump)
+	var ceiling = $"/root/MainScene/Ceiling" as Area2D
+	ceiling.body_entered.connect(func(_body): can_jump = false)
+	ceiling.body_exited.connect(func(_body): can_jump = true)
 
 func _process(delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("ui_accept"):
+		jump()
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
-		on_button_pressed()
 	var arc = 2000 - (-1000)
 	rotation_degrees = (linear_velocity.y + 1000) / arc * (135) - 45
 
-func on_button_pressed() -> void:
+func jump() -> void:
+	if is_dead or not can_jump: return
+	
 	linear_velocity = Vector2.ZERO
 	if rotation_degrees > 0:
 		rotation_degrees = 0
 	apply_impulse(Vector2.UP * jump_power)
 
+
+func _on_body_entered(body: Node) -> void:
+	if body.name == "Ground":
+		die()
+
+		
+func die() -> void:
+	died.emit()
+	is_dead = true
+	linear_velocity.x = 0
+	await get_tree().create_timer(5).timeout
+	get_tree().reload_current_scene()
+	
+	
