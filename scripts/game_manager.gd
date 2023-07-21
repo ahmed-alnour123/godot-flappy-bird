@@ -6,3 +6,6 @@ var score = 0
 func add_score():
 	score += 1
 	print("score is %d" % score)
+
+func _process(_delta) -> void:
+	$HUD/Label.text = str(score)

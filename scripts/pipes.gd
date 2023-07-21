@@ -19,8 +19,6 @@ func _process(delta: float) -> void:
 	
 	if position.x < player.position.x and not is_passed_player:
 		is_passed_player = true
-		print("yes")
-		# add score to game manager
 		game_manager.add_score()
 
 func _on_body_entered(body: Node2D) -> void:

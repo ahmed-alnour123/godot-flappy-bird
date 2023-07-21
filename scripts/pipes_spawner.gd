@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var pipes_scene: PackedScene
-var pipe_margin = 400 # TODO: decrease it to make it harder
+var pipe_margin = 300 # TODO: decrease it to make it harder
 var can_instantiate = true
 
 
@@ -16,9 +16,9 @@ func _process(delta: float) -> void:
 	pass
 
 func instantiate_pipes() -> void:
-	var height = DisplayServer.screen_get_size().x
+	var height = get_viewport().size.y
 	var instance = pipes_scene.instantiate() as Area2D
-	$"../PipesPos".position.y = randi_range(pipe_margin, height - pipe_margin)
+	$"../PipesPos".position.y = randi_range(pipe_margin, height)
 	instance.position = $"../PipesPos".position
 	add_child(instance)
 	

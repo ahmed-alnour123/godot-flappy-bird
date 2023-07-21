@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://w4dr3siso0ay"]
 
+[ext_resource type="Script" path="res://scripts/pipes.gd" id="1_f0obn"]
 [ext_resource type="Texture2D" uid="uid://s1g5v7nf6y3y" path="res://art/pixel.png" id="2_b8qst"]
-[ext_resource type="Script" path="res://scenes/pipes.gd" id="2_trqga"]
 
 [node name="pipes" type="Area2D"]
-script = ExtResource("2_trqga")
+script = ExtResource("1_f0obn")
 speed = 10
 
 [node name="TopPipe" type="Sprite2D" parent="."]
