@@ -1,8 +1,8 @@
-extends Node2D
+class_name PipesSpawner extends Node2D
 
 @export var pipes_scene: PackedScene
 var pipe_margin = 300 # TODO: decrease it to make it harder
-var can_instantiate = true
+var can_instantiate = false
 
 
 # Called when the node enters the scene tree for the first time.

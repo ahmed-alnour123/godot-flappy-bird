@@ -5,13 +5,15 @@ signal died
 @export var jump_power = 10.0
 @onready var btn: TouchScreenButton = $"../TouchBtn"
 var is_dead = false
-var can_jump = true
+var can_jump = false
 
 func _ready() -> void:
 	btn.pressed.connect(jump)
 	var ceiling = $"/root/MainScene/Ceiling" as Area2D
 	ceiling.body_entered.connect(func(_body): can_jump = false)
 	ceiling.body_exited.connect(func(_body): can_jump = true)
+
+	gravity_scale = 0
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
@@ -39,7 +41,7 @@ func die() -> void:
 	died.emit()
 	is_dead = true
 	linear_velocity.x = 0
-	await get_tree().create_timer(5).timeout
-	get_tree().reload_current_scene()
+#	await get_tree().create_timer(5).timeout
+#	get_tree().reload_current_scene()
 	
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b0xih5lsoehag"]
+[gd_scene load_steps=13 format=3 uid="uid://b0xih5lsoehag"]
 
 [ext_resource type="PackedScene" uid="uid://cxlmi0672itw7" path="res://scenes/player.tscn" id="1_4gxh6"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_e6cxp"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://w4dr3siso0ay" path="res://scenes/pipes.tscn" id="4_u2sbk"]
 [ext_resource type="Texture2D" uid="uid://s1g5v7nf6y3y" path="res://art/pixel.png" id="6_oq25r"]
 [ext_resource type="FontFile" uid="uid://de72xj327hey6" path="res://art/fonts/PatrickHand-Regular.ttf" id="7_iojsc"]
+[ext_resource type="PackedScene" uid="uid://2v8y5twhn5ip" path="res://scenes/ui/main_menu.tscn" id="8_ubxls"]
+[ext_resource type="PackedScene" uid="uid://cbqygid0e58sr" path="res://scenes/ui/lose_panel.tscn" id="9_ojrwc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i87ky"]
 size = Vector2(1080, 135.75)
@@ -31,7 +33,6 @@ texture_normal = ExtResource("2_48wsa")
 [node name="Player" parent="." groups=["player"] instance=ExtResource("1_4gxh6")]
 z_index = 1
 position = Vector2(255, 960)
-gravity_scale = 2.0
 max_contacts_reported = 1
 contact_monitor = true
 jump_power = 1000.0
@@ -83,6 +84,15 @@ text = "33"
 label_settings = SubResource("LabelSettings_5mx7w")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MainMenu" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" parent="MainMenu" instance=ExtResource("8_ubxls")]
+
+[node name="LosePanel" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="LosePanel" parent="LosePanel" instance=ExtResource("9_ojrwc")]
 
 [connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
 [connection signal="timeout" from="PipesTimer" to="PipesSpawner" method="_on_pipes_timer_timeout"]

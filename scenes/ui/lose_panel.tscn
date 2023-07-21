@@ -110,7 +110,7 @@ horizontal_alignment = 2
 
 [node name="Score" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2
-text = "12"
+text = "0"
 label_settings = SubResource("LabelSettings_kmnqx")
 horizontal_alignment = 2
 
@@ -130,7 +130,7 @@ horizontal_alignment = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="Play" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -148,7 +148,7 @@ texture_pressed = ExtResource("3_h6min")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="TextureRect" type="TextureRect" parent="TextureButton"]
+[node name="TextureRect" type="TextureRect" parent="Play"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
