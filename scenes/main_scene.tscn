@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0xih5lsoehag"]
+[gd_scene load_steps=11 format=3 uid="uid://b0xih5lsoehag"]
 
 [ext_resource type="PackedScene" uid="uid://cxlmi0672itw7" path="res://scenes/player.tscn" id="1_4gxh6"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_e6cxp"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/pipes_spawner.gd" id="4_00kq4"]
 [ext_resource type="PackedScene" uid="uid://w4dr3siso0ay" path="res://scenes/pipes.tscn" id="4_u2sbk"]
 [ext_resource type="Texture2D" uid="uid://s1g5v7nf6y3y" path="res://art/pixel.png" id="6_oq25r"]
+[ext_resource type="FontFile" uid="uid://de72xj327hey6" path="res://art/fonts/PatrickHand-Regular.ttf" id="7_iojsc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i87ky"]
 size = Vector2(1080, 135.75)
@@ -14,7 +15,8 @@ size = Vector2(1080, 135.75)
 size = Vector2(1080, 82.5)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5mx7w"]
-font_size = 101
+font = ExtResource("7_iojsc")
+font_size = 181
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_e6cxp")
@@ -73,11 +75,11 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -260.0
-offset_top = 158.0
+offset_top = 83.0
 offset_right = 260.0
-offset_bottom = 299.0
+offset_bottom = 332.0
 grow_horizontal = 2
-text = "1920x1080"
+text = "33"
 label_settings = SubResource("LabelSettings_5mx7w")
 horizontal_alignment = 1
 vertical_alignment = 1

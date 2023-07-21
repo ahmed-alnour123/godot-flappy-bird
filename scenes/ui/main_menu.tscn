@@ -1,9 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://2v8y5twhn5ip"]
+[gd_scene load_steps=9 format=3 uid="uid://2v8y5twhn5ip"]
 
-[ext_resource type="Texture2D" uid="uid://s1g5v7nf6y3y" path="res://art/pixel.png" id="1_iw6os"]
-[ext_resource type="Texture2D" uid="uid://clwrexlpquunv" path="res://icon.svg" id="2_sdfm5"]
+[ext_resource type="Texture2D" uid="uid://db0umrqn7x2oq" path="res://art/ui_pack/PNG/yellow_button00.png" id="1_17gld"]
+[ext_resource type="Texture2D" uid="uid://crr1jn1c5bxn2" path="res://art/ui_pack/PNG/yellow_button07.png" id="1_adc76"]
+[ext_resource type="Texture2D" uid="uid://dbrnuuej3h4" path="res://art/ui_pack/PNG/yellow_button01.png" id="1_ctfup"]
+[ext_resource type="FontFile" uid="uid://de72xj327hey6" path="res://art/fonts/PatrickHand-Regular.ttf" id="1_mub4r"]
+[ext_resource type="Texture2D" uid="uid://dxpj142jnneof" path="res://art/ui_pack/PNG/yellow_button08.png" id="2_bqgeb"]
+[ext_resource type="Texture2D" uid="uid://tbdtp8e854ew" path="res://art/icons/info_icon.svg" id="4_cks8f"]
+[ext_resource type="Texture2D" uid="uid://cqy7ta3w4cjug" path="res://art/icons/play_icon.svg" id="7_whrg8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mp7tv"]
+font = ExtResource("1_mub4r")
 font_size = 161
 
 [node name="MainMenu" type="Control"]
@@ -38,9 +44,25 @@ offset_left = 32.0
 offset_top = 32.0
 offset_right = 179.0
 offset_bottom = 179.0
-texture_normal = ExtResource("1_iw6os")
+texture_normal = ExtResource("1_adc76")
+texture_pressed = ExtResource("2_bqgeb")
 ignore_texture_size = true
 stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="About"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.5
+offset_top = -58.5
+offset_right = 50.5
+offset_bottom = 42.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_cks8f")
 
 [node name="Play" type="TextureButton" parent="."]
 layout_mode = 1
@@ -55,7 +77,22 @@ offset_right = 326.0
 offset_bottom = 426.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("1_iw6os")
-texture_pressed = ExtResource("2_sdfm5")
+texture_normal = ExtResource("1_17gld")
+texture_pressed = ExtResource("1_ctfup")
 ignore_texture_size = true
-stretch_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="Play"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -74.0
+offset_right = 64.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_whrg8")

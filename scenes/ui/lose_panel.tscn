@@ -1,17 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbqygid0e58sr"]
+[gd_scene load_steps=11 format=3 uid="uid://cbqygid0e58sr"]
 
-[ext_resource type="Texture2D" uid="uid://s1g5v7nf6y3y" path="res://art/pixel.png" id="1_dxdtx"]
+[ext_resource type="FontFile" uid="uid://de72xj327hey6" path="res://art/fonts/PatrickHand-Regular.ttf" id="1_1dbm5"]
+[ext_resource type="Texture2D" uid="uid://db0umrqn7x2oq" path="res://art/ui_pack/PNG/yellow_button00.png" id="2_6ahbf"]
 [ext_resource type="Texture2D" uid="uid://clwrexlpquunv" path="res://icon.svg" id="2_bl2vs"]
+[ext_resource type="Texture2D" uid="uid://xnj2r7s4l4ll" path="res://art/ui_pack/PNG/grey_panel.png" id="2_ppqvi"]
+[ext_resource type="Texture2D" uid="uid://dbrnuuej3h4" path="res://art/ui_pack/PNG/yellow_button01.png" id="3_h6min"]
+[ext_resource type="Texture2D" uid="uid://cqy7ta3w4cjug" path="res://art/icons/play_icon.svg" id="6_fikla"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_os61n"]
-font_size = 111
+font = ExtResource("1_1dbm5")
+font_size = 186
+font_color = Color(1, 0.8, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s75hq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4ntj5"]
+font = ExtResource("1_1dbm5")
 font_size = 61
+font_color = Color(0.972549, 0.968627, 1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_kmnqx"]
+font = ExtResource("1_1dbm5")
 font_size = 121
-font_color = Color(0.337255, 0.564706, 0.94902, 1)
+font_color = Color(1, 0.8, 0, 1)
 
 [node name="LosePanel" type="Control"]
 layout_mode = 3
@@ -46,12 +57,23 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -361.0
-offset_top = -321.0
-offset_right = 361.0
-offset_bottom = 321.0
+offset_left = -459.0
+offset_top = -301.0
+offset_right = 459.0
+offset_bottom = 301.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_s75hq")
+
+[node name="Background" type="TextureRect" parent="Panel"]
+modulate = Color(0.258824, 0.227451, 0.239216, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ppqvi")
 
 [node name="TextureRect" type="TextureRect" parent="Panel"]
 layout_mode = 1
@@ -71,6 +93,8 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -205.0
+offset_right = -81.0
 grow_horizontal = 0
 grow_vertical = 2
 
@@ -119,7 +143,24 @@ offset_right = 258.0
 offset_bottom = 558.0
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("1_dxdtx")
-texture_pressed = ExtResource("2_bl2vs")
+texture_normal = ExtResource("2_6ahbf")
+texture_pressed = ExtResource("3_h6min")
 ignore_texture_size = true
-stretch_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -59.0
+offset_right = 53.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_fikla")
+expand_mode = 1
+stretch_mode = 5
