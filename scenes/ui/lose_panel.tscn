@@ -16,7 +16,17 @@ shadow_size = 81
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(9, 6)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s75hq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_phh28"]
+bg_color = Color(0.243137, 0.211765, 0.223529, 1)
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_offset = Vector2(18, 12)
 
 [sub_resource type="LabelSettings" id="LabelSettings_4ntj5"]
 font = ExtResource("1_1dbm5")
@@ -71,9 +81,10 @@ offset_right = 412.0
 offset_bottom = 286.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_s75hq")
+theme_override_styles/panel = SubResource("StyleBoxFlat_phh28")
 
 [node name="Background" type="TextureRect" parent="Panel"]
+visible = false
 modulate = Color(0.258824, 0.227451, 0.239216, 1)
 layout_mode = 1
 anchors_preset = 15

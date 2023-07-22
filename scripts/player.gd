@@ -29,6 +29,7 @@ func _physics_process(delta: float) -> void:
 
 func jump() -> void:
 	if is_dead or not can_jump: return
+	$JumpAudioPlayer.play()
 	
 	linear_velocity = Vector2.ZERO
 	if rotation_degrees > 0:
@@ -42,11 +43,10 @@ func _on_body_entered(body: Node) -> void:
 
 		
 func die() -> void:
+	if is_dead: return
 	died.emit()
 	is_dead = true
 	linear_velocity.x = 0
 	$AnimatedSprite2D.animation = "dead"
-#	await get_tree().create_timer(5).timeout
-#	get_tree().reload_current_scene()
-	
+	$HitAudioPlayer.play()
 	

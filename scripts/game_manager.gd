@@ -14,10 +14,13 @@ func _ready() -> void:
 	player.died.connect(end_game)
 	high_score = load_score()
 	$LosePanel/LosePanel/Panel/VBoxContainer/BestScore.text = str(high_score)
+	setup_about_dev_panel()
+	connect_button_sounds()
 
 func add_score():
 	score += 1
 	$LosePanel/LosePanel/Panel/VBoxContainer/Score.text = str(score)
+	$Player/PipeAudioPlayer.play()
 
 
 func _process(_delta) -> void:
@@ -34,6 +37,7 @@ func start_game():
 	game_started = true
 	
 func restart_game():
+	await get_tree().create_timer(0.1).timeout
 	get_tree().reload_current_scene()
 	
 func end_game():
@@ -57,3 +61,36 @@ func save_score(score: int):
 	var save_file = FileAccess.open(SCORE_FILE, FileAccess.WRITE)
 	save_file.store_line(str(score))
 	print("high score saved!!")
+
+func setup_about_dev_panel():
+	$MainMenu/MainMenu/About.pressed.connect(func(): $MainMenu/AboutDev.show())
+	$MainMenu/AboutDev/Background/Panel/Exit.pressed.connect(func():$MainMenu/AboutDev.hide())
+	$MainMenu/AboutDev/Background/Panel/Margin/Column/SocialMediaRow/Github/MarginContainer/TextureButton.pressed.connect(
+		func(): OS.shell_open("https://github.com/ahmed-alnour123")
+	)
+	$MainMenu/AboutDev/Background/Panel/Margin/Column/SocialMediaRow/Twitter/MarginContainer/TextureButton.pressed.connect(
+		func(): OS.shell_open("https://twitter.com/ahmedalnour123")
+	)
+	$MainMenu/AboutDev/Background/Panel/Margin/Column/SocialMediaRow/LinkedIn/MarginContainer/TextureButton.pressed.connect(
+		func(): OS.shell_open("https://linkedin.com/in/ahmedalnour123/")
+	)
+	$MainMenu/AboutDev/Background/Panel/Margin/Column/SocialMediaRow/Discord/MarginContainer/TextureButton.pressed.connect(
+		func(): OS.shell_open("mailto://ahmed2699@gmail.com")
+	)
+
+func goto_link(url: String):
+	if OS.get_name() == "HTML5":
+#		JavaScript.eval("window.location.href='%s'" % url)
+		pass
+	else:
+		OS.shell_open(url)
+
+func _play_click_sound():
+	$AudioPlayer.play()
+
+func connect_button_sounds():
+	$MainMenu/AboutDev/Background/Panel/Exit.pressed.connect(_play_click_sound)
+	$MainMenu/MainMenu/About.pressed.connect(_play_click_sound)
+	$MainMenu/MainMenu/Play.pressed.connect(_play_click_sound)
+	$LosePanel/LosePanel/Play.pressed.connect(_play_click_sound)
+

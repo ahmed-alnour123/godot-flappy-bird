@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://2v8y5twhn5ip"]
+[gd_scene load_steps=11 format=3 uid="uid://2v8y5twhn5ip"]
 
 [ext_resource type="Texture2D" uid="uid://db0umrqn7x2oq" path="res://art/ui_pack/PNG/yellow_button00.png" id="1_17gld"]
 [ext_resource type="Texture2D" uid="uid://crr1jn1c5bxn2" path="res://art/ui_pack/PNG/yellow_button07.png" id="1_adc76"]
@@ -16,6 +16,14 @@ outline_size = 30
 shadow_size = 90
 shadow_color = Color(0, 0, 0, 1)
 shadow_offset = Vector2(9, 6)
+
+[sub_resource type="InputEventKey" id="InputEventKey_uuj2o"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_170pe"]
+events = [SubResource("InputEventKey_uuj2o")]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -82,6 +90,7 @@ offset_right = 326.0
 offset_bottom = 507.0
 grow_horizontal = 2
 grow_vertical = 2
+shortcut = SubResource("Shortcut_170pe")
 texture_normal = ExtResource("1_17gld")
 texture_pressed = ExtResource("1_ctfup")
 ignore_texture_size = true

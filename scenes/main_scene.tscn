@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b0xih5lsoehag"]
+[gd_scene load_steps=18 format=3 uid="uid://b0xih5lsoehag"]
 
 [ext_resource type="PackedScene" uid="uid://cxlmi0672itw7" path="res://scenes/player.tscn" id="1_4gxh6"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_e6cxp"]
@@ -11,7 +11,9 @@
 [ext_resource type="Script" path="res://scenes/ground_mover.gd" id="7_v0lhl"]
 [ext_resource type="PackedScene" uid="uid://2v8y5twhn5ip" path="res://scenes/ui/main_menu.tscn" id="8_ubxls"]
 [ext_resource type="PackedScene" uid="uid://cbqygid0e58sr" path="res://scenes/ui/lose_panel.tscn" id="9_ojrwc"]
+[ext_resource type="PackedScene" uid="uid://b0qg7gayb5phf" path="res://scenes/ui/about_developer.tscn" id="11_6fm1a"]
 [ext_resource type="Texture2D" uid="uid://cyoqwq6c3a1pn" path="res://art/backgroundEmpty.png" id="12_yj0f5"]
+[ext_resource type="AudioStream" uid="uid://bbmw13t36l4up" path="res://sounds/select_ui.ogg" id="14_alswt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i87ky"]
 size = Vector2(1080, 135)
@@ -111,6 +113,9 @@ vertical_alignment = 1
 
 [node name="MainMenu" parent="MainMenu" instance=ExtResource("8_ubxls")]
 
+[node name="AboutDev" parent="MainMenu" instance=ExtResource("11_6fm1a")]
+visible = false
+
 [node name="LosePanel" type="CanvasLayer" parent="."]
 visible = false
 
@@ -126,6 +131,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("12_yj0f5")
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_alswt")
 
 [connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
 [connection signal="timeout" from="PipesTimer" to="PipesSpawner" method="_on_pipes_timer_timeout"]

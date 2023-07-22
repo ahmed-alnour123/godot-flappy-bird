@@ -1,0 +1,291 @@
+[gd_scene load_steps=16 format=3 uid="uid://b0qg7gayb5phf"]
+
+[ext_resource type="Texture2D" uid="uid://bstib6sssgw27" path="res://art/icons/xmark-solid.svg" id="1_76i21"]
+[ext_resource type="Texture2D" uid="uid://s1g5v7nf6y3y" path="res://art/pixel.png" id="1_l4ibp"]
+[ext_resource type="FontFile" uid="uid://de72xj327hey6" path="res://art/fonts/PatrickHand-Regular.ttf" id="2_ehid6"]
+[ext_resource type="Texture2D" uid="uid://tk21mifcd82t" path="res://art/my_image.jpg" id="2_vmtwe"]
+[ext_resource type="Texture2D" uid="uid://dt8x1lcmu5nq8" path="res://art/icons/github.svg" id="3_67w3h"]
+[ext_resource type="Texture2D" uid="uid://b1i2lx0agct7w" path="res://art/icons/twitter.svg" id="4_7s8k7"]
+[ext_resource type="Texture2D" uid="uid://bvqhupfm07hcu" path="res://art/icons/linkedin-in.svg" id="5_isg37"]
+[ext_resource type="Texture2D" uid="uid://bng4cd0ydwjhm" path="res://art/icons/email.svg" id="7_415hi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oho1x"]
+bg_color = Color(1, 0.8, 0, 1)
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_offset = Vector2(18, 12)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3cbwq"]
+font = ExtResource("2_ehid6")
+font_size = 91
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uhijt"]
+font = ExtResource("2_ehid6")
+font_size = 60
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xsld6"]
+bg_color = Color(0.101961, 0.117647, 0.133333, 1)
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.803922, 0.803922, 0.803922, 1)
+border_blend = true
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+shadow_color = Color(0, 0, 0, 0.278431)
+shadow_size = 4
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nsk77"]
+bg_color = Color(0.301961, 0.65098, 0.913725, 1)
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.803922, 0.803922, 0.803922, 1)
+border_blend = true
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+shadow_color = Color(0, 0, 0, 0.278431)
+shadow_size = 4
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i8dsa"]
+bg_color = Color(0, 0.466667, 0.686275, 1)
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.803922, 0.803922, 0.803922, 1)
+border_blend = true
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+shadow_color = Color(0, 0, 0, 0.278431)
+shadow_size = 4
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5g53f"]
+bg_color = Color(0.458824, 0.458824, 0.458824, 1)
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.803922, 0.803922, 0.803922, 1)
+border_blend = true
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+shadow_color = Color(0, 0, 0, 0.278431)
+shadow_size = 4
+shadow_offset = Vector2(5, 5)
+
+[node name="AboutDev" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(0.239216, 0.239216, 0.239216, 0.729412)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_l4ibp")
+
+[node name="Panel" type="Panel" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -481.0
+offset_top = -707.0
+offset_right = 481.0
+offset_bottom = 707.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_oho1x")
+
+[node name="Margin" type="MarginContainer" parent="Background/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Column" type="VBoxContainer" parent="Background/Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 2
+
+[node name="Row" type="HBoxContainer" parent="Background/Panel/Margin/Column"]
+layout_mode = 2
+
+[node name="Image" type="TextureRect" parent="Background/Panel/Margin/Column/Row"]
+custom_minimum_size = Vector2(280, 280)
+layout_mode = 2
+texture = ExtResource("2_vmtwe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Spacer" type="Control" parent="Background/Panel/Margin/Column/Row"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Background/Panel/Margin/Column/Row"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Background/Panel/Margin/Column/Row/HBoxContainer"]
+layout_mode = 2
+text = "Ahmed Alnour"
+label_settings = SubResource("LabelSettings_3cbwq")
+
+[node name="Developer" type="Label" parent="Background/Panel/Margin/Column/Row/HBoxContainer"]
+layout_mode = 2
+text = "Game developer"
+label_settings = SubResource("LabelSettings_uhijt")
+
+[node name="Bio" type="RichTextLabel" parent="Background/Panel/Margin/Column"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = -5
+theme_override_fonts/normal_font = ExtResource("2_ehid6")
+theme_override_font_sizes/normal_font_size = 42
+text = "I'm a game developer who's passionate about creating fun, polished, and interactive games. I'm always challenging myself to explore new things and push the boundaries of what's possible.
+
+I have 4 years of experience in the industry, and I've worked on a variety of projects. I'm skilled in a variety of programming languages and game engines, and I'm always eager to learn new things.
+
+If you have a game idea that you're passionate about, I'd love to hear it! I offer game development services, so we can work together to bring your game to life. You can reach me on my social media accounts to discuss your project."
+fit_content = true
+
+[node name="SocialMediaRow" type="HBoxContainer" parent="Background/Panel/Margin/Column"]
+layout_mode = 2
+theme_override_constants/separation = 70
+alignment = 1
+
+[node name="Github" type="Panel" parent="Background/Panel/Margin/Column/SocialMediaRow"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xsld6")
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/Panel/Margin/Column/SocialMediaRow/Github"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureButton" type="TextureButton" parent="Background/Panel/Margin/Column/SocialMediaRow/Github/MarginContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_67w3h")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Twitter" type="Panel" parent="Background/Panel/Margin/Column/SocialMediaRow"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nsk77")
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/Panel/Margin/Column/SocialMediaRow/Twitter"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureButton" type="TextureButton" parent="Background/Panel/Margin/Column/SocialMediaRow/Twitter/MarginContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_7s8k7")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="LinkedIn" type="Panel" parent="Background/Panel/Margin/Column/SocialMediaRow"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_i8dsa")
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/Panel/Margin/Column/SocialMediaRow/LinkedIn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureButton" type="TextureButton" parent="Background/Panel/Margin/Column/SocialMediaRow/LinkedIn/MarginContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_isg37")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Discord" type="Panel" parent="Background/Panel/Margin/Column/SocialMediaRow"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5g53f")
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/Panel/Margin/Column/SocialMediaRow/Discord"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureButton" type="TextureButton" parent="Background/Panel/Margin/Column/SocialMediaRow/Discord/MarginContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_415hi")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Exit" type="TextureButton" parent="Background/Panel"]
+modulate = Color(0.811765, 0, 0.0235294, 1)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -111.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = 111.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("1_76i21")
+ignore_texture_size = true
+stretch_mode = 5

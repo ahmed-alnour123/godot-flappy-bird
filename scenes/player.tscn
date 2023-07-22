@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxlmi0672itw7"]
+[gd_scene load_steps=11 format=3 uid="uid://cxlmi0672itw7"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_idyjd"]
 [ext_resource type="Texture2D" uid="uid://c3x5yrxeloee2" path="res://art/robot_pack/PNG/Side view/robot_blueDamage1.png" id="2_1dhn1"]
 [ext_resource type="Texture2D" uid="uid://ly0dgdsp72cy" path="res://art/robot_pack/PNG/Side view/robot_blueDrive1.png" id="2_38gpd"]
 [ext_resource type="Texture2D" uid="uid://c6fejgwxw0p4d" path="res://art/robot_pack/PNG/Side view/robot_blueDamage2.png" id="3_0rtn6"]
 [ext_resource type="Texture2D" uid="uid://dyc45rtm8pk37" path="res://art/robot_pack/PNG/Side view/robot_blueDrive2.png" id="3_gl78j"]
+[ext_resource type="AudioStream" uid="uid://diuve3hsfttfl" path="res://sounds/pass_pipe.ogg" id="6_fn76b"]
+[ext_resource type="AudioStream" uid="uid://c72bhgdwt3fel" path="res://sounds/crash_sound.wav" id="7_hualv"]
+[ext_resource type="AudioStream" uid="uid://biqfbhsbgbr38" path="res://sounds/jump_sound.wav" id="7_mgdqy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ckogu"]
 animations = [{
@@ -32,7 +35,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l7dmo"]
-size = Vector2(134, 140)
+size = Vector2(146, 114)
 
 [node name="Player" type="RigidBody2D"]
 gravity_scale = 2.0
@@ -40,7 +43,6 @@ script = ExtResource("1_idyjd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ckogu")
-animation = &"dead"
 autoplay = "default"
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
@@ -51,3 +53,12 @@ sprite_frames = SubResource("SpriteFrames_ckogu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_l7dmo")
+
+[node name="PipeAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_fn76b")
+
+[node name="JumpAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_mgdqy")
+
+[node name="HitAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_hualv")
