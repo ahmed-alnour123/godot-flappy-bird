@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnagar50ejq8f"]
+
+[ext_resource type="TileSet" uid="uid://brfroefutei4p" path="res://scenes/ui/tilemap_sets.tres" id="1_jbulr"]
+[ext_resource type="PackedScene" uid="uid://w4dr3siso0ay" path="res://scenes/pipes.tscn" id="2_6i51x"]
+
+[node name="tilemap_test" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-216, -1275)
+scale = Vector2(17, 17)
+tile_set = ExtResource("1_jbulr")
+format = 2
+layer_0/tile_data = PackedInt32Array(458766, 327681, 3, 524302, 327681, 3, 589838, 327681, 3, 655374, 327681, 3, 720910, 327681, 3, 786446, 327681, 3, 393229, 458753, 5, 393231, 655361, 5, 393230, 524289, 5, 458770, 262145, 3, 524306, 262145, 3, 589842, 262145, 3, 655378, 262145, 3, 720914, 262145, 3, 786450, 262145, 3, 393233, 262145, 1, 393234, 327681, 1, 393235, 393217, 1, 393225, 327681, 6, 458761, 720897, 4, 524297, 720897, 5, 589833, 720897, 4, 655369, 720897, 6, 720905, 720897, 4, 786441, 720897, 5, 393221, 327681, 6, 458757, 720897, 6, 524293, 720897, 4, 589829, 720897, 5, 655365, 720897, 5, 720901, 720897, 6, 786437, 720897, 6, 393224, 262145, 6, 393226, 393217, 6, 393220, 262145, 6, 393222, 393217, 6)
+
+[node name="pipes" parent="." instance=ExtResource("2_6i51x")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

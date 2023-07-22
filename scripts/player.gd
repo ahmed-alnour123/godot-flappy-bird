@@ -6,6 +6,7 @@ signal died
 @onready var btn: TouchScreenButton = $"../TouchBtn"
 var is_dead = false
 var can_jump = false
+@onready var original_pos = position.y
 
 func _ready() -> void:
 	btn.pressed.connect(jump)
@@ -16,6 +17,9 @@ func _ready() -> void:
 	gravity_scale = 0
 
 func _process(delta: float) -> void:
+	if not $"/root/MainScene".game_started:
+		position.y = original_pos + sin(deg_to_rad(Time.get_ticks_msec() / 3)) * 30
+		
 	if Input.is_action_just_pressed("ui_accept"):
 		jump()
 
@@ -41,6 +45,7 @@ func die() -> void:
 	died.emit()
 	is_dead = true
 	linear_velocity.x = 0
+	$AnimatedSprite2D.animation = "dead"
 #	await get_tree().create_timer(5).timeout
 #	get_tree().reload_current_scene()
 	

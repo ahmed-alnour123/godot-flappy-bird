@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b0xih5lsoehag"]
+[gd_scene load_steps=16 format=3 uid="uid://b0xih5lsoehag"]
 
 [ext_resource type="PackedScene" uid="uid://cxlmi0672itw7" path="res://scenes/player.tscn" id="1_4gxh6"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_e6cxp"]
@@ -6,12 +6,15 @@
 [ext_resource type="Script" path="res://scripts/pipes_spawner.gd" id="4_00kq4"]
 [ext_resource type="PackedScene" uid="uid://w4dr3siso0ay" path="res://scenes/pipes.tscn" id="4_u2sbk"]
 [ext_resource type="Texture2D" uid="uid://s1g5v7nf6y3y" path="res://art/pixel.png" id="6_oq25r"]
+[ext_resource type="TileSet" uid="uid://brfroefutei4p" path="res://scenes/ui/tilemap_sets.tres" id="7_dmnvh"]
 [ext_resource type="FontFile" uid="uid://de72xj327hey6" path="res://art/fonts/PatrickHand-Regular.ttf" id="7_iojsc"]
+[ext_resource type="Script" path="res://scenes/ground_mover.gd" id="7_v0lhl"]
 [ext_resource type="PackedScene" uid="uid://2v8y5twhn5ip" path="res://scenes/ui/main_menu.tscn" id="8_ubxls"]
 [ext_resource type="PackedScene" uid="uid://cbqygid0e58sr" path="res://scenes/ui/lose_panel.tscn" id="9_ojrwc"]
+[ext_resource type="Texture2D" uid="uid://cyoqwq6c3a1pn" path="res://art/backgroundEmpty.png" id="12_yj0f5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i87ky"]
-size = Vector2(1080, 135.75)
+size = Vector2(1080, 135)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c755j"]
 size = Vector2(1080, 82.5)
@@ -19,6 +22,8 @@ size = Vector2(1080, 82.5)
 [sub_resource type="LabelSettings" id="LabelSettings_5mx7w"]
 font = ExtResource("7_iojsc")
 font_size = 181
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_e6cxp")
@@ -33,6 +38,7 @@ texture_normal = ExtResource("2_48wsa")
 [node name="Player" parent="." groups=["player"] instance=ExtResource("1_4gxh6")]
 z_index = 1
 position = Vector2(255, 960)
+gravity_scale = 3.0
 max_contacts_reported = 1
 contact_monitor = true
 jump_power = 1000.0
@@ -62,6 +68,23 @@ position = Vector2(540, 1920)
 position = Vector2(0, -67.875)
 shape = SubResource("RectangleShape2D_i87ky")
 
+[node name="Node2D" type="Node2D" parent="Ground/CollisionShape2D"]
+script = ExtResource("7_v0lhl")
+
+[node name="TileMap" type="TileMap" parent="Ground/CollisionShape2D/Node2D"]
+position = Vector2(535, 67.875)
+scale = Vector2(8.4, 8.4)
+tile_set = ExtResource("7_dmnvh")
+format = 2
+layer_0/tile_data = PackedInt32Array(-3, 131073, 0, -65536, 131073, 0, -65535, 131073, 0, -65534, 131073, 0, -65533, 131073, 0, -1, 131073, 0, -2, 131073, 0, -4, 131073, 0)
+
+[node name="TileMap2" type="TileMap" parent="Ground/CollisionShape2D/Node2D"]
+position = Vector2(-0.000183105, 67.875)
+scale = Vector2(8.4, 8.4)
+tile_set = ExtResource("7_dmnvh")
+format = 2
+layer_0/tile_data = PackedInt32Array(-3, 131073, 0, -65536, 131073, 0, -65535, 131073, 0, -65534, 131073, 0, -65533, 131073, 0, -1, 131073, 0, -2, 131073, 0, -4, 131073, 0)
+
 [node name="Ceiling" type="Area2D" parent="."]
 position = Vector2(540, 0)
 
@@ -80,7 +103,6 @@ offset_top = 83.0
 offset_right = 260.0
 offset_bottom = 332.0
 grow_horizontal = 2
-text = "33"
 label_settings = SubResource("LabelSettings_5mx7w")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -93,6 +115,17 @@ vertical_alignment = 1
 visible = false
 
 [node name="LosePanel" parent="LosePanel" instance=ExtResource("9_ojrwc")]
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Texture" type="TextureRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_yj0f5")
 
 [connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
 [connection signal="timeout" from="PipesTimer" to="PipesSpawner" method="_on_pipes_timer_timeout"]

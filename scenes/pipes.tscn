@@ -1,34 +1,80 @@
-[gd_scene load_steps=3 format=3 uid="uid://w4dr3siso0ay"]
+[gd_scene load_steps=4 format=3 uid="uid://w4dr3siso0ay"]
 
 [ext_resource type="Script" path="res://scripts/pipes.gd" id="1_f0obn"]
-[ext_resource type="Texture2D" uid="uid://s1g5v7nf6y3y" path="res://art/pixel.png" id="2_b8qst"]
+[ext_resource type="TileSet" uid="uid://brfroefutei4p" path="res://scenes/ui/tilemap_sets.tres" id="3_u6flh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kewlr"]
+size = Vector2(275.427, 2982.59)
 
 [node name="pipes" type="Area2D"]
+scale = Vector2(0.537348, 0.537348)
 script = ExtResource("1_f0obn")
 speed = 10
 
-[node name="TopPipe" type="Sprite2D" parent="."]
-position = Vector2(0, -250)
-scale = Vector2(216, 1920)
-texture = ExtResource("2_b8qst")
-centered = false
-offset = Vector2(-0.5, -1)
+[node name="TopPipes" type="Node2D" parent="."]
+position = Vector2(-135, -372.358)
+scale = Vector2(1, -1)
 
-[node name="BottomPipe" type="Sprite2D" parent="."]
-position = Vector2(0, 250)
-scale = Vector2(216, 1920)
-texture = ExtResource("2_b8qst")
-centered = false
-offset = Vector2(-0.5, 0)
+[node name="0" type="TileMap" parent="TopPipes"]
+scale = Vector2(17, 17)
+tile_set = ExtResource("3_u6flh")
+format = 2
+layer_0/tile_data = PackedInt32Array(65536, 720897, 4, 131072, 720897, 5, 196608, 720897, 4, 262144, 720897, 6, 327680, 720897, 4, 393216, 720897, 5, 0, 589825, 1, 524288, 720897, 5, 589824, 720897, 5, 655360, 720897, 5, 458752, 720897, 4)
 
-[node name="BottomCollision" type="CollisionPolygon2D" parent="."]
-position = Vector2(-108, 250)
-scale = Vector2(216, 1920)
-polygon = PackedVector2Array(1, 1, 0, 1, 0, 0, 1, 0)
+[node name="1" type="TileMap" parent="TopPipes"]
+scale = Vector2(17, 17)
+tile_set = ExtResource("3_u6flh")
+format = 2
+layer_0/tile_data = PackedInt32Array(65536, 720897, 6, 131072, 720897, 4, 196608, 720897, 5, 262144, 720897, 5, 327680, 720897, 6, 393216, 720897, 6, 0, 917505, 3, 589824, 720897, 6, 655360, 720897, 6, 458752, 720897, 4, 524288, 720897, 5)
 
-[node name="TopCollision" type="CollisionPolygon2D" parent="."]
-position = Vector2(-108, -2168)
-scale = Vector2(216, 1920)
-polygon = PackedVector2Array(1, 1, 0, 1, 0, 0, 1, 0)
+[node name="2" type="TileMap" parent="TopPipes"]
+scale = Vector2(17, 17)
+tile_set = ExtResource("3_u6flh")
+format = 2
+layer_0/tile_data = PackedInt32Array(65536, 327681, 3, 131072, 327681, 3, 196608, 327681, 3, 262144, 327681, 3, 327680, 327681, 3, 393216, 327681, 3, 0, 524289, 5, 458752, 327681, 3, 524288, 327681, 3, 589824, 327681, 3, 655360, 327681, 3)
+
+[node name="3" type="TileMap" parent="TopPipes"]
+scale = Vector2(17, 17)
+tile_set = ExtResource("3_u6flh")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 327681, 1, 65536, 262145, 3, 131072, 262145, 3, 196608, 262145, 3, 262144, 262145, 3, 327680, 262145, 3, 393216, 262145, 3, 458752, 262145, 3, 524288, 262145, 3, 589824, 262145, 3, 655360, 262145, 3)
+
+[node name="TopCollider" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1898.21)
+rotation = 3.14159
+scale = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_kewlr")
+
+[node name="BottomPipes" type="Node2D" parent="."]
+position = Vector2(-135, 372.198)
+
+[node name="0" type="TileMap" parent="BottomPipes"]
+scale = Vector2(17, 17)
+tile_set = ExtResource("3_u6flh")
+format = 2
+layer_0/tile_data = PackedInt32Array(65536, 720897, 6, 131072, 720897, 4, 196608, 720897, 5, 262144, 720897, 5, 327680, 720897, 6, 393216, 720897, 6, 0, 589825, 1, 589824, 720897, 6, 655360, 720897, 6, 458752, 720897, 4, 524288, 720897, 4)
+
+[node name="1" type="TileMap" parent="BottomPipes"]
+scale = Vector2(17, 17)
+tile_set = ExtResource("3_u6flh")
+format = 2
+layer_0/tile_data = PackedInt32Array(65536, 720897, 4, 131072, 720897, 5, 196608, 720897, 4, 262144, 720897, 6, 327680, 720897, 4, 393216, 720897, 5, 0, 917505, 3, 524288, 720897, 5, 589824, 720897, 5, 458752, 720897, 4, 655360, 720897, 4)
+
+[node name="2" type="TileMap" parent="BottomPipes"]
+scale = Vector2(17, 17)
+tile_set = ExtResource("3_u6flh")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 524289, 5, 65536, 327681, 3, 131072, 327681, 3, 196608, 327681, 3, 262144, 327681, 3, 327680, 327681, 3, 393216, 327681, 3, 458752, 327681, 3, 524288, 327681, 3, 589824, 327681, 3, 655360, 327681, 3)
+
+[node name="3" type="TileMap" parent="BottomPipes"]
+scale = Vector2(17, 17)
+tile_set = ExtResource("3_u6flh")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 327681, 1, 65536, 262145, 3, 131072, 262145, 3, 196608, 262145, 3, 262144, 262145, 3, 327680, 262145, 3, 393216, 262145, 3, 458752, 262145, 3, 524288, 262145, 3, 589824, 262145, 3, 655360, 262145, 3)
+
+[node name="BottomCollider" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1891.99)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_kewlr")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

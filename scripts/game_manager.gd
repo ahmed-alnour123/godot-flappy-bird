@@ -4,6 +4,7 @@ var score = 0
 @onready
 var player: Player = get_tree().get_first_node_in_group("player")
 @onready var spawner: PipesSpawner = $"PipesSpawner"
+var game_started = false
 
 func _ready() -> void:
 	$MainMenu/MainMenu/Play.pressed.connect(start_game)
@@ -15,6 +16,8 @@ func add_score():
 	$LosePanel/LosePanel/Panel/VBoxContainer/Score.text = str(score)
 
 func _process(_delta) -> void:
+	if not game_started: return
+	
 	$HUD/Label.text = str(score)
 
 func start_game():
@@ -23,6 +26,7 @@ func start_game():
 	player.gravity_scale = 2
 	player.jump()
 	spawner.can_instantiate = true
+	game_started = true
 	
 func restart_game():
 	get_tree().reload_current_scene()

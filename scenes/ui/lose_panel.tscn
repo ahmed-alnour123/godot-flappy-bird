@@ -2,8 +2,8 @@
 
 [ext_resource type="FontFile" uid="uid://de72xj327hey6" path="res://art/fonts/PatrickHand-Regular.ttf" id="1_1dbm5"]
 [ext_resource type="Texture2D" uid="uid://db0umrqn7x2oq" path="res://art/ui_pack/PNG/yellow_button00.png" id="2_6ahbf"]
-[ext_resource type="Texture2D" uid="uid://clwrexlpquunv" path="res://icon.svg" id="2_bl2vs"]
 [ext_resource type="Texture2D" uid="uid://xnj2r7s4l4ll" path="res://art/ui_pack/PNG/grey_panel.png" id="2_ppqvi"]
+[ext_resource type="Texture2D" uid="uid://ly0dgdsp72cy" path="res://art/robot_pack/PNG/Side view/robot_blueDrive1.png" id="3_fciie"]
 [ext_resource type="Texture2D" uid="uid://dbrnuuej3h4" path="res://art/ui_pack/PNG/yellow_button01.png" id="3_h6min"]
 [ext_resource type="Texture2D" uid="uid://cqy7ta3w4cjug" path="res://art/icons/play_icon.svg" id="6_fikla"]
 
@@ -11,6 +11,10 @@
 font = ExtResource("1_1dbm5")
 font_size = 186
 font_color = Color(1, 0.8, 0, 1)
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 81
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(9, 6)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s75hq"]
 
@@ -18,11 +22,15 @@ font_color = Color(1, 0.8, 0, 1)
 font = ExtResource("1_1dbm5")
 font_size = 61
 font_color = Color(0.972549, 0.968627, 1, 1)
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_kmnqx"]
 font = ExtResource("1_1dbm5")
 font_size = 121
 font_color = Color(1, 0.8, 0, 1)
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
 
 [node name="LosePanel" type="Control"]
 layout_mode = 3
@@ -57,10 +65,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -459.0
-offset_top = -301.0
-offset_right = 459.0
-offset_bottom = 301.0
+offset_left = -412.0
+offset_top = -286.0
+offset_right = 412.0
+offset_bottom = 286.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_s75hq")
@@ -75,7 +83,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_ppqvi")
 
-[node name="TextureRect" type="TextureRect" parent="Panel"]
+[node name="Image" type="TextureRect" parent="Panel"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -85,7 +93,7 @@ offset_top = -128.0
 offset_right = 363.0
 offset_bottom = 128.0
 grow_vertical = 2
-texture = ExtResource("2_bl2vs")
+texture = ExtResource("3_fciie")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1

@@ -10,7 +10,12 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_mp7tv"]
 font = ExtResource("1_mub4r")
-font_size = 161
+font_size = 261
+font_color = Color(1, 0.8, 0, 1)
+outline_size = 30
+shadow_size = 90
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(9, 6)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -28,12 +33,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -436.0
-offset_top = -459.0
+offset_top = -630.0
 offset_right = 436.0
-offset_bottom = -235.0
+offset_bottom = -273.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Flappy Bird"
+text = "RoboFly"
 label_settings = SubResource("LabelSettings_mp7tv")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -72,9 +77,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -326.0
-offset_top = 182.0
+offset_top = 263.0
 offset_right = 326.0
-offset_bottom = 426.0
+offset_bottom = 507.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("1_17gld")
