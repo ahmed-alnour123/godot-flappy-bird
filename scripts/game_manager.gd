@@ -75,13 +75,12 @@ func setup_about_dev_panel():
 		func(): OS.shell_open("https://linkedin.com/in/ahmedalnour123/")
 	)
 	$MainMenu/AboutDev/Background/Panel/Margin/Column/SocialMediaRow/Discord/MarginContainer/TextureButton.pressed.connect(
-		func(): OS.shell_open("mailto://ahmed2699@gmail.com")
+		func(): OS.shell_open("mailto:ahmed2699@gmail.com")
 	)
 
 func goto_link(url: String):
 	if OS.get_name() == "HTML5":
-#		JavaScript.eval("window.location.href='%s'" % url)
-		pass
+		JavaScriptBridge.eval("window.location.href='%s'" % url)
 	else:
 		OS.shell_open(url)
 

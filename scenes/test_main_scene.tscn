@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://d03nkl3oil3e4"]
+
+[ext_resource type="PackedScene" uid="uid://cxlmi0672itw7" path="res://scenes/player.tscn" id="3_ki8ol"]
+[ext_resource type="PackedScene" uid="uid://w4dr3siso0ay" path="res://scenes/pipes.tscn" id="5_yxk44"]
+[ext_resource type="Texture2D" uid="uid://cyoqwq6c3a1pn" path="res://art/backgroundEmpty.png" id="13_yiox4"]
+[ext_resource type="AudioStream" uid="uid://bbmw13t36l4up" path="res://sounds/select_ui.ogg" id="14_q1yvo"]
+
+[node name="MainScene" type="Node2D"]
+metadata/_edit_vertical_guides_ = [540.0, 1080.0, 0.0]
+metadata/_edit_horizontal_guides_ = [960.0, 1920.0, 0.0]
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("3_ki8ol")]
+z_index = 1
+position = Vector2(255, 960)
+gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
+script = null
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Texture" type="TextureRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_yiox4")
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_q1yvo")
+
+[node name="pipes" parent="." instance=ExtResource("5_yxk44")]
+position = Vector2(436, 865)
+script = null
+
+[node name="0" parent="pipes/TopPipes" index="0"]
+visible = false
+
+[node name="2" parent="pipes/TopPipes" index="2"]
+visible = false
+
+[node name="3" parent="pipes/TopPipes" index="3"]
+visible = false
+
+[node name="0" parent="pipes/BottomPipes" index="0"]
+visible = false
+
+[node name="2" parent="pipes/BottomPipes" index="2"]
+visible = false
+
+[node name="3" parent="pipes/BottomPipes" index="3"]
+visible = false
+
+[connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
+
+[editable path="pipes"]
