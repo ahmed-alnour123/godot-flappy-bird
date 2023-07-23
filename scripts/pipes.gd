@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var speed = 100
+@export var speed = 8
 
 var is_passed_player = false
 @onready var game_manager: GameManager = $"/root/MainScene"

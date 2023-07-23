@@ -16,10 +16,12 @@ func _process(delta: float) -> void:
 	pass
 
 func instantiate_pipes() -> void:
-	var height = get_viewport().size.y
+#	var height = get_viewport().size.y
+	var height = 1920
+	pipe_margin = height / 5
 	var instance = pipes_scene.instantiate() as Area2D
 	choose_random_pipe(instance)
-	$"../PipesPos".position.y = randi_range(pipe_margin, height)
+	$"../PipesPos".position.y = randi_range(pipe_margin, height - pipe_margin)
 	instance.position = $"../PipesPos".position
 	add_child(instance)
 

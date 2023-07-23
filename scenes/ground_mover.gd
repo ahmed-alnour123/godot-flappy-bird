@@ -3,7 +3,7 @@ extends Node2D
 @onready var tile1 = $TileMap
 @onready var tile2 = $TileMap2
 
-var speed = 10
+var speed = 8
 func _ready() -> void:
 	get_tree().get_first_node_in_group("player").died.connect(func(): speed = 0)
 

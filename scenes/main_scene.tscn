@@ -18,8 +18,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i87ky"]
 size = Vector2(1080, 135)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c755j"]
-size = Vector2(1080, 82.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gb4nq"]
+size = Vector2(1080, 618)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5mx7w"]
 font = ExtResource("7_iojsc")
@@ -60,7 +60,7 @@ texture = ExtResource("6_oq25r")
 [node name="PlayerMarker" type="Marker2D" parent="."]
 
 [node name="PipesTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 2.5
 autostart = true
 
 [node name="Ground" type="StaticBody2D" parent="."]
@@ -70,17 +70,17 @@ position = Vector2(540, 1920)
 position = Vector2(0, -67.875)
 shape = SubResource("RectangleShape2D_i87ky")
 
-[node name="Node2D" type="Node2D" parent="Ground/CollisionShape2D"]
+[node name="GroundMover" type="Node2D" parent="Ground/CollisionShape2D"]
 script = ExtResource("7_v0lhl")
 
-[node name="TileMap" type="TileMap" parent="Ground/CollisionShape2D/Node2D"]
+[node name="TileMap" type="TileMap" parent="Ground/CollisionShape2D/GroundMover"]
 position = Vector2(535, 67.875)
 scale = Vector2(8.4, 8.4)
 tile_set = ExtResource("7_dmnvh")
 format = 2
 layer_0/tile_data = PackedInt32Array(-3, 131073, 0, -65536, 131073, 0, -65535, 131073, 0, -65534, 131073, 0, -65533, 131073, 0, -1, 131073, 0, -2, 131073, 0, -4, 131073, 0)
 
-[node name="TileMap2" type="TileMap" parent="Ground/CollisionShape2D/Node2D"]
+[node name="TileMap2" type="TileMap" parent="Ground/CollisionShape2D/GroundMover"]
 position = Vector2(-0.000183105, 67.875)
 scale = Vector2(8.4, 8.4)
 tile_set = ExtResource("7_dmnvh")
@@ -88,11 +88,11 @@ format = 2
 layer_0/tile_data = PackedInt32Array(-3, 131073, 0, -65536, 131073, 0, -65535, 131073, 0, -65534, 131073, 0, -65533, 131073, 0, -1, 131073, 0, -2, 131073, 0, -4, 131073, 0)
 
 [node name="Ceiling" type="Area2D" parent="."]
-position = Vector2(540, 0)
+position = Vector2(541, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
-position = Vector2(0, 40.75)
-shape = SubResource("RectangleShape2D_c755j")
+position = Vector2(0, -227)
+shape = SubResource("RectangleShape2D_gb4nq")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 

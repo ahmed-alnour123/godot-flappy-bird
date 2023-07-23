@@ -9,7 +9,6 @@ size = Vector2(275.427, 2982.59)
 [node name="pipes" type="Area2D"]
 scale = Vector2(0.537348, 0.537348)
 script = ExtResource("1_f0obn")
-speed = 10
 
 [node name="TopPipes" type="Node2D" parent="."]
 position = Vector2(-135, -372.358)

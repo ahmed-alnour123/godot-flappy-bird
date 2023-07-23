@@ -25,7 +25,6 @@ func add_score():
 
 func _process(_delta) -> void:
 	if not game_started: return
-	
 	$HUD/Label.text = str(score)
 
 func start_game():
