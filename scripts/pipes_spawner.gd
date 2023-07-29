@@ -17,7 +17,8 @@ func _process(delta: float) -> void:
 
 func instantiate_pipes() -> void:
 #	var height = get_viewport().size.y
-	var height = 1920
+#	var height = 1920
+	var height = 1080
 	pipe_margin = height / 5
 	var instance = pipes_scene.instantiate() as Area2D
 	choose_random_pipe(instance)

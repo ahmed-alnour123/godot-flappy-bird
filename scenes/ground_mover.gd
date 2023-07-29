@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var tile1 = $TileMap
 @onready var tile2 = $TileMap2
+@onready var tile3 = $TileMap3
 
 var speed = 8
 func _ready() -> void:
@@ -12,7 +13,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	tile1.translate(Vector2.LEFT * speed)
 	tile2.translate(Vector2.LEFT * speed)
+	tile3.translate(Vector2.LEFT * speed)
 	
-	for tile in [tile1, tile2]:
-		if tile.position.x < -540:
-			tile.position.x = 540
+	for tile in [tile1, tile2, tile3]:
+		if tile.position.x < -1084:
+			tile.position.x = 1084

@@ -50,7 +50,7 @@ script = ExtResource("4_00kq4")
 pipes_scene = ExtResource("4_u2sbk")
 
 [node name="PipesPos" type="Marker2D" parent="."]
-position = Vector2(1400, 960)
+position = Vector2(2671, 501)
 
 [node name="Sprite2D" type="Sprite2D" parent="PipesPos"]
 modulate = Color(0.976471, 0, 0.556863, 1)
@@ -64,7 +64,7 @@ wait_time = 2.5
 autostart = true
 
 [node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2(540, 1920)
+position = Vector2(1083, 1165)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 position = Vector2(0, -67.875)
@@ -74,18 +74,25 @@ shape = SubResource("RectangleShape2D_i87ky")
 script = ExtResource("7_v0lhl")
 
 [node name="TileMap" type="TileMap" parent="Ground/CollisionShape2D/GroundMover"]
-position = Vector2(535, 67.875)
+position = Vector2(1084, 67.875)
+scale = Vector2(8.47545, 8.4)
+tile_set = ExtResource("7_dmnvh")
+format = 2
+layer_0/tile_data = PackedInt32Array(-3, 131073, 0, -65536, 131073, 0, -65535, 131073, 0, -65534, 131073, 0, -65533, 131073, 0, -1, 131073, 0, -2, 131073, 0, -4, 131073, 0, -65532, 131073, 0, -65531, 131073, 0, -65530, 131073, 0, -65529, 131073, 0, -65528, 131073, 0, -65527, 131073, 0, -65526, 131073, 0, -65525, 131073, 0, -65524, 131073, 0, -65523, 131073, 0, -65522, 131073, 0, -65521, 131073, 0, -65520, 131073, 0, -65519, 131073, 0)
+
+[node name="TileMap3" type="TileMap" parent="Ground/CollisionShape2D/GroundMover"]
+position = Vector2(-1089, 67.875)
 scale = Vector2(8.4, 8.4)
 tile_set = ExtResource("7_dmnvh")
 format = 2
-layer_0/tile_data = PackedInt32Array(-3, 131073, 0, -65536, 131073, 0, -65535, 131073, 0, -65534, 131073, 0, -65533, 131073, 0, -1, 131073, 0, -2, 131073, 0, -4, 131073, 0)
+layer_0/tile_data = PackedInt32Array(-3, 131073, 0, -65536, 131073, 0, -65535, 131073, 0, -65534, 131073, 0, -65533, 131073, 0, -1, 131073, 0, -2, 131073, 0, -4, 131073, 0, -65532, 131073, 0, -65531, 131073, 0, -65530, 131073, 0, -65529, 131073, 0, -65528, 131073, 0, -65527, 131073, 0, -65526, 131073, 0, -65525, 131073, 0, -65524, 131073, 0, -65523, 131073, 0, -65522, 131073, 0, -65521, 131073, 0, -65520, 131073, 0, -5, 131073, 0, -6, 131073, 0, -7, 131073, 0, -8, 131073, 0, -9, 131073, 0, -10, 131073, 0, -11, 131073, 0)
 
 [node name="TileMap2" type="TileMap" parent="Ground/CollisionShape2D/GroundMover"]
 position = Vector2(-0.000183105, 67.875)
 scale = Vector2(8.4, 8.4)
 tile_set = ExtResource("7_dmnvh")
 format = 2
-layer_0/tile_data = PackedInt32Array(-3, 131073, 0, -65536, 131073, 0, -65535, 131073, 0, -65534, 131073, 0, -65533, 131073, 0, -1, 131073, 0, -2, 131073, 0, -4, 131073, 0)
+layer_0/tile_data = PackedInt32Array(-3, 131073, 0, -65536, 131073, 0, -65535, 131073, 0, -65534, 131073, 0, -65533, 131073, 0, -1, 131073, 0, -2, 131073, 0, -4, 131073, 0, -5, 131073, 0, -6, 131073, 0, -7, 131073, 0, -8, 131073, 0, -9, 131073, 0, -10, 131073, 0, -11, 131073, 0, -12, 131073, 0, -13, 131073, 0, -14, 131073, 0, -15, 131073, 0, -16, 131073, 0, -17, 131073, 0, -18, 131073, 0, -19, 131073, 0, -65532, 131073, 0, -65531, 131073, 0, -65530, 131073, 0, -65529, 131073, 0, -65528, 131073, 0, -65527, 131073, 0, -65526, 131073, 0, -65525, 131073, 0)
 
 [node name="Ceiling" type="Area2D" parent="."]
 position = Vector2(541, 0)

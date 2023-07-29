@@ -1,6 +1,6 @@
 class_name GameManager extends Node2D
 
-var score = 0
+var score = 20
 var high_score = 0
 @onready
 var player: Player = get_tree().get_first_node_in_group("player")
