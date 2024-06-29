@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var speed = 8
+var speed = 8
 
 var is_passed_player = false
 @onready var game_manager: GameManager = $"/root/MainScene"
@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if not body == player: return
-	player.die()
+	player.die(true)
 	
 func _on_player_died() -> void:
 	speed = 0

@@ -7,12 +7,14 @@ signal died
 var is_dead = false
 var can_jump = false
 @onready var original_pos = position.y
+var died_from_pipe
 
 func _ready() -> void:
 	btn.pressed.connect(jump)
 	var ceiling = $"/root/MainScene/Ceiling" as Area2D
 	ceiling.body_entered.connect(func(_body): can_jump = false)
 	ceiling.body_exited.connect(func(_body): can_jump = true)
+
 
 	gravity_scale = 0
 
@@ -39,14 +41,22 @@ func jump() -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body.name == "Ground":
-		die()
+		die(false)
 
 		
-func die() -> void:
+func die(_died_from_pipe) -> void:
+	died_from_pipe = _died_from_pipe
 	if is_dead: return
 	died.emit()
 	is_dead = true
 	linear_velocity.x = 0
 	$AnimatedSprite2D.animation = "dead"
 	$HitAudioPlayer.play()
+	
+func reset_player():
+	is_dead = false
+	
+	position.y = original_pos
+	$AnimatedSprite2D.animation = 'default'
+
 	

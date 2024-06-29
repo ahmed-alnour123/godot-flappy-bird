@@ -4,15 +4,23 @@ class_name PipesSpawner extends Node2D
 var pipe_margin = 300 # TODO: decrease it to make it harder
 var can_instantiate = false
 
+var next_pipe
+var current_pipe
+var first_pipe = true
+var player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var player = get_tree().get_nodes_in_group("player")[0]
+	player = get_tree().get_nodes_in_group("player")[0]
 	player.died.connect(_on_player_died)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if current_pipe:
+		if player.position.x > current_pipe.position.x + 200:
+			current_pipe = next_pipe
+		
 	pass
 
 func instantiate_pipes() -> void:
@@ -21,9 +29,16 @@ func instantiate_pipes() -> void:
 	pipe_margin = height / 5
 	var instance = pipes_scene.instantiate() as Area2D
 	choose_random_pipe(instance)
-	$"../PipesPos".position.y = randi_range(pipe_margin, height - pipe_margin)
+	var new_pos = randi_range(pipe_margin, height - pipe_margin)
+	$"../PipesPos".position.y = new_pos
 	instance.position = $"../PipesPos".position
 	add_child(instance)
+	next_pipe = instance
+	if first_pipe:
+		current_pipe = next_pipe
+		first_pipe = false
+	
+	
 
 ## choose a random pipe then delete the others
 func choose_random_pipe(pipe: Node2D):

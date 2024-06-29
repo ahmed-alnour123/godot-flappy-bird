@@ -7,6 +7,7 @@ var player: Player = get_tree().get_first_node_in_group("player")
 @onready var spawner: PipesSpawner = $"PipesSpawner"
 var game_started = false
 const SCORE_FILE = "user://score_file.save"
+signal added_socre
 
 func _ready() -> void:
 	$MainMenu/MainMenu/Play.pressed.connect(start_game)
@@ -18,9 +19,11 @@ func _ready() -> void:
 	connect_button_sounds()
 
 func add_score():
+	$"/root/Reinforcement".just_added_score = true
 	score += 1
 	$LosePanel/LosePanel/Panel/VBoxContainer/Score.text = str(score)
 	$Player/PipeAudioPlayer.play()
+
 
 
 func _process(_delta) -> void:
@@ -36,9 +39,11 @@ func start_game():
 	game_started = true
 	
 func restart_game():
+	print("Episode ended...")
 	await get_tree().create_timer(0.1).timeout
 	get_tree().reload_current_scene()
-	
+
+
 func end_game():
 	if score > high_score:
 		save_score(score)
@@ -47,19 +52,19 @@ func end_game():
 	
 	
 func load_score() -> int:
-	print("loading high score...")
+	#print("loading high score...")
 	var score = 0
 	if FileAccess.file_exists(SCORE_FILE):
 		var line = FileAccess.open(SCORE_FILE, FileAccess.READ).get_line()
 		score = int(line)
-	print("hight score is ", score)
+	#print("hight score is ", score)
 	return score
 	
 func save_score(score: int):
-	print("saving high score...")
+	#print("saving high score...")
 	var save_file = FileAccess.open(SCORE_FILE, FileAccess.WRITE)
 	save_file.store_line(str(score))
-	print("high score saved!!")
+	#print("high score saved!!")
 
 func setup_about_dev_panel():
 	$MainMenu/MainMenu/About.pressed.connect(func(): $MainMenu/AboutDev.show())

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbd75xtbgjorr"]
+
+[ext_resource type="Script" path="res://scripts/Reinforcement.gd" id="1_3uk6l"]
+[ext_resource type="Script" path="res://scripts/socket.gd" id="2_mf2pk"]
+
+[node name="Reinforcement" type="Node"]
+script = ExtResource("1_3uk6l")
+
+[node name="Socket" type="Node" parent="."]
+script = ExtResource("2_mf2pk")
