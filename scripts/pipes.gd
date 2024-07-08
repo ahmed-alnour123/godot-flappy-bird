@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var speed = 8
+@export var speed = 480.192
 
 var is_passed_player = false
 @onready var game_manager: GameManager = $"/root/MainScene"
@@ -15,7 +15,8 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	translate(Vector2.LEFT * speed)
+	var target_pos = position + (Vector2.LEFT * speed * delta)
+	position = position.move_toward(target_pos, speed)
 	
 	if position.x < player.position.x and not is_passed_player:
 		is_passed_player = true
