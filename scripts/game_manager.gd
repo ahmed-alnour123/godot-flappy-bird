@@ -1,6 +1,6 @@
 class_name GameManager extends Node2D
 
-var score = 20
+var score = 0
 var high_score = 0
 @onready
 var player: Player = get_tree().get_first_node_in_group("player")
@@ -65,16 +65,16 @@ func setup_about_dev_panel():
 	$MainMenu/MainMenu/About.pressed.connect(func(): $MainMenu/AboutDev.show())
 	$MainMenu/AboutDev/Background/Panel/Exit.pressed.connect(func():$MainMenu/AboutDev.hide())
 	$MainMenu/AboutDev/Background/Panel/Margin/Column/SocialMediaRow/Github/MarginContainer/TextureButton.pressed.connect(
-		func(): OS.shell_open("https://github.com/ahmed-alnour123")
+		func(): OS.shell_open("https://github.com/ahmedelnour123")
 	)
 	$MainMenu/AboutDev/Background/Panel/Margin/Column/SocialMediaRow/Twitter/MarginContainer/TextureButton.pressed.connect(
-		func(): OS.shell_open("https://twitter.com/ahmedalnour123")
+		func(): OS.shell_open("https://twitter.com/ahmed_elnour123")
 	)
 	$MainMenu/AboutDev/Background/Panel/Margin/Column/SocialMediaRow/LinkedIn/MarginContainer/TextureButton.pressed.connect(
-		func(): OS.shell_open("https://linkedin.com/in/ahmedalnour123/")
+		func(): OS.shell_open("https://linkedin.com/in/ahmedelnour123/")
 	)
 	$MainMenu/AboutDev/Background/Panel/Margin/Column/SocialMediaRow/Discord/MarginContainer/TextureButton.pressed.connect(
-		func(): OS.shell_open("mailto:ahmed2699@gmail.com")
+		func(): OS.shell_open("mailto:ahmed.elnour.official@gmail.com")
 	)
 
 func goto_link(url: String):
@@ -91,4 +91,3 @@ func connect_button_sounds():
 	$MainMenu/MainMenu/About.pressed.connect(_play_click_sound)
 	$MainMenu/MainMenu/Play.pressed.connect(_play_click_sound)
 	$LosePanel/LosePanel/Play.pressed.connect(_play_click_sound)
-

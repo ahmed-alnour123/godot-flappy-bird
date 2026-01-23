@@ -155,12 +155,12 @@ layout_mode = 2
 
 [node name="Name" type="Label" parent="Background/Panel/Margin/Column/Row/HBoxContainer"]
 layout_mode = 2
-text = "Ahmed Alnour"
+text = "Ahmed Elnour"
 label_settings = SubResource("LabelSettings_3cbwq")
 
 [node name="Developer" type="Label" parent="Background/Panel/Margin/Column/Row/HBoxContainer"]
 layout_mode = 2
-text = "Game developer"
+text = "Senoir Game Developer"
 label_settings = SubResource("LabelSettings_uhijt")
 
 [node name="Bio" type="RichTextLabel" parent="Background/Panel/Margin/Column"]
@@ -171,7 +171,7 @@ theme_override_fonts/normal_font = ExtResource("2_ehid6")
 theme_override_font_sizes/normal_font_size = 42
 text = "I'm a game developer who's passionate about creating fun, polished, and interactive games. I'm always challenging myself to explore new things and push the boundaries of what's possible.
 
-I have 4 years of experience in the industry, and I've worked on a variety of projects. I'm skilled in a variety of programming languages and game engines, and I'm always eager to learn new things.
+I have 5 years of experience in the industry, and I've worked on a variety of projects. I'm skilled in a variety of programming languages and game engines, and I'm always eager to learn new things.
 
 If you have a game idea that you're passionate about, I'd love to hear it! I offer game development services, so we can work together to bring your game to life. You can reach me on my social media accounts to discuss your project."
 fit_content = true

@@ -43,7 +43,7 @@ func _on_body_entered(body: Node) -> void:
 
 		
 func die() -> void:
-	return
+	#return
 	if is_dead: return
 	died.emit()
 	is_dead = true

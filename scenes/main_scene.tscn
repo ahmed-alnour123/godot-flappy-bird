@@ -1,14 +1,14 @@
 [gd_scene load_steps=18 format=3 uid="uid://b0xih5lsoehag"]
 
 [ext_resource type="PackedScene" uid="uid://cxlmi0672itw7" path="res://scenes/player.tscn" id="1_4gxh6"]
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_e6cxp"]
+[ext_resource type="Script" uid="uid://cmpsbmp6vs8n6" path="res://scripts/game_manager.gd" id="1_e6cxp"]
 [ext_resource type="Texture2D" uid="uid://clwrexlpquunv" path="res://icon.svg" id="2_48wsa"]
-[ext_resource type="Script" path="res://scripts/pipes_spawner.gd" id="4_00kq4"]
+[ext_resource type="Script" uid="uid://pcjjtm34xhnb" path="res://scripts/pipes_spawner.gd" id="4_00kq4"]
 [ext_resource type="PackedScene" uid="uid://w4dr3siso0ay" path="res://scenes/pipes.tscn" id="4_u2sbk"]
 [ext_resource type="Texture2D" uid="uid://s1g5v7nf6y3y" path="res://art/pixel.png" id="6_oq25r"]
 [ext_resource type="TileSet" uid="uid://brfroefutei4p" path="res://scenes/ui/tilemap_sets.tres" id="7_dmnvh"]
 [ext_resource type="FontFile" uid="uid://de72xj327hey6" path="res://art/fonts/PatrickHand-Regular.ttf" id="7_iojsc"]
-[ext_resource type="Script" path="res://scenes/ground_mover.gd" id="7_v0lhl"]
+[ext_resource type="Script" uid="uid://xt3cmfvf8lh2" path="res://scenes/ground_mover.gd" id="7_v0lhl"]
 [ext_resource type="PackedScene" uid="uid://2v8y5twhn5ip" path="res://scenes/ui/main_menu.tscn" id="8_ubxls"]
 [ext_resource type="PackedScene" uid="uid://cbqygid0e58sr" path="res://scenes/ui/lose_panel.tscn" id="9_ojrwc"]
 [ext_resource type="PackedScene" uid="uid://b0qg7gayb5phf" path="res://scenes/ui/about_developer.tscn" id="11_6fm1a"]
@@ -41,8 +41,8 @@ texture_normal = ExtResource("2_48wsa")
 z_index = 1
 position = Vector2(255, 960)
 gravity_scale = 3.0
-max_contacts_reported = 1
 contact_monitor = true
+max_contacts_reported = 1
 jump_power = 1000.0
 
 [node name="PipesSpawner" type="Node2D" parent="."]
@@ -50,7 +50,7 @@ script = ExtResource("4_00kq4")
 pipes_scene = ExtResource("4_u2sbk")
 
 [node name="PipesPos" type="Marker2D" parent="."]
-position = Vector2(2671, 501)
+position = Vector2(1625, 540)
 
 [node name="Sprite2D" type="Sprite2D" parent="PipesPos"]
 modulate = Color(0.976471, 0, 0.556863, 1)
@@ -67,7 +67,7 @@ autostart = true
 position = Vector2(1083, 1165)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-position = Vector2(0, -67.875)
+position = Vector2(-542, 681)
 shape = SubResource("RectangleShape2D_i87ky")
 
 [node name="GroundMover" type="Node2D" parent="Ground/CollisionShape2D"]
